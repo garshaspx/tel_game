@@ -1,0 +1,253 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-image: url('wallpaper.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+.container h1 {
+    font-size: 2em;
+    /* Adjust the size as needed */
+    margin-bottom: 10px;
+    /* Adjust the distance as needed */
+}
+
+.input-button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-container {
+    position: relative;
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px 10px;
+    font-size: 1em;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+
+input[type="text"]:focus {
+    border-color: #23a6d5;
+}
+
+input[type="text"]::placeholder {
+    color: #aaa;
+    transition: transform 0.5s, font-size 0.5s;
+}
+
+input[type="text"]:focus::placeholder {
+    transform: translate(-10px, -30px);
+    font-size: 0.8em;
+}
+
+.input-label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #aaa;
+    pointer-events: none;
+    transition: all 0.3s;
+    background-color: transparent;
+    padding: 0 5px;
+}
+
+input[type="text"]:focus+.input-label,
+input[type="text"]:not(:placeholder-shown)+.input-label {
+    top: -10px;
+    left: 40px;
+    font-size: 0.75em;
+    color: #23a6d5;
+    background-color: #fff;
+}
+
+.animated-text {
+    font-size: 2em;
+    animation: textColor 5s ease infinite;
+}
+
+button {
+    padding: 10px;
+    font-size: 1em;
+    white-space: nowrap;
+    background-color: #23a6d5;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #1a8bb5;
+}
+
+p {
+    font-size: 1em;
+    color: red;
+}
+
+.navbar {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(30px);
+    box-shadow: 0px 0px 30px rgba(227, 228, 237, 0.37);
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    padding: 10px 0;
+}
+
+.navbar button {
+    background: none;
+    border: none;
+    color: rgb(24, 9, 9);
+    font-size: 1em;
+    cursor: pointer;
+}
+
+
+button:hover {
+    background-color: #1a8bb5;
+}
+
+#home-container {
+    display: none;
+}
+
+#content {
+    padding: 20px;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 60%;
+    }
+}
+
+.profile-container {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    /* width: calc(100% - 30%); */
+    width: 80%;
+    /* max-width: 600px; */
+    /* background-color: #fff; */
+    border: 2px solid #296a99;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.profile-header {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.profile-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-image {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: 200px;
+    margin-left: 15px;
+    border: 4px solid white;
+    background-color: white;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-details {
+    margin-top: 15px;
+    text-align: left;
+}
+
+.profile-username {
+    font-size: 1.5em;
+    color: #ff7373;
+    font-weight: bold;
+}
+
+.profile-handle {
+    color: #1d6fb3;
+    margin: 5px 0;
+}
+
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .profile-header {
+        height: 150px;
+    }
+
+    .profile-image {
+        width: 100px;
+        height: 100px;
+        margin-top: -50px;
+    }
+
+    .profile-username {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-header {
+        height: 100px;
+    }
+
+    .profile-image {
+        width: 80px;
+        height: 80px;
+        margin-top: -40px;
+    }
+
+    .profile-username {
+        font-size: 1em;
+    }
+}
