@@ -4,7 +4,11 @@ const statusText = document.getElementById('username-status');
 const loginContainer = document.getElementById('login-container');
 const homeContainer = document.getElementById('home-container');
 
-const userId = window.location.pathname.split('/').pop();
+
+const urlParams = new URLSearchParams(window.location.search);
+const userId = urlParams.get('number');
+
+
 let websocket;
 
 statusText.textContent = "Loading ...";
