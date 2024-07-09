@@ -14,7 +14,8 @@ let websocket;
 statusText.textContent = "Loading ...";
 
 function connectWebSocket() {
-    websocket = new WebSocket(`ws://localhost:8000/ws/${userId}`);
+    const websocket = new WebSocket(`ws://49.12.97.130:443/ws/${userId}`);
+
 
     websocket.onopen = function (event) {
         websocket.send("isactive?");
