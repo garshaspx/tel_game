@@ -14,7 +14,7 @@ let websocket;
 statusText.textContent = "Loading ...";
 
 function connectWebSocket() {
-    const websocket = new WebSocket(`ws://49.12.97.130:443/ws/${userId}`);
+    websocket = new WebSocket(`ws://49.12.97.130:443/ws/${userId}`);
 
 
     websocket.onopen = function (event) {
