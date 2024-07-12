@@ -51,6 +51,9 @@ connectWebSocket();
 import { loadProfile } from './pages/profile.mjs';
 
 document.addEventListener('DOMContentLoaded', () => {
+
+
+
     checkButton.addEventListener('click', () => {
         const username = usernameInput.value;
         if (username) {
@@ -61,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 statusText.textContent = "No connection";
             }
         } else {
+            alert("Please enter a username");
             statusText.textContent = "Please enter a username";
             statusText.style.color = "red";
         }
