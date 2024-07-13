@@ -1,6 +1,6 @@
 // WebApp/static/logic/pages/profile.mjs
 
-export function loadProfile(userid) {
+export function loadProfilePage(userid) {
     return `
         <div class="profile-container">
             <div class="profile-image">
@@ -10,6 +10,9 @@ export function loadProfile(userid) {
                 <img src='../static/imgs/1234.png' alt="header">
             </div>
             <h2 class="profile-username">${userid}</h2>
+            <a href="http://t.me/garshaspx" class="profile-username" target="_blank">
+                <button>hello thereeeeeee</button>
+            </a>
         </div>
     `;
 }
