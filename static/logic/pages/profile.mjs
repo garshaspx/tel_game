@@ -1,15 +1,15 @@
 // WebApp/static/logic/pages/profile.mjs
 
-export function loadProfilePage(userid) {
+export function loadProfilePage(username, prof, header) {
     return `
         <div class="profile-container">
             <div class="profile-image">
-                <img src='static/imgs/MTdmNjg5M2QtZDg5NS00ZDk5LWI5OWYtNmY2YWY3ZTgzOGQ0.png' alt="Profile Image">
+                <img src=${prof} alt="Profile Image" loading="lazy">
             </div>
             <div class="profile-header">
-                <img src='static/imgs/1234.png' alt="header">
+                <img src=${header} alt="header" loading="lazy">
             </div>
-            <h2 class="profile-username">${userid}</h2>
+            <h2 class="profile-username">${username}</h2>
             <a href="http://t.me/garshaspx" class="profile-username" target="_blank">
                 <button>hello thereeeeeee</button>
             </a>

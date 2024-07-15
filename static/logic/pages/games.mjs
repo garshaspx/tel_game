@@ -1,6 +1,8 @@
+
+
 export function loadGamesPage() {
     let gamesHTML = `
-        <h2>Games</h2>
+        <h2 class="animated-text">Games</h2>
         <div class="games-container">
     `;
 
@@ -8,6 +10,12 @@ export function loadGamesPage() {
         gamesHTML += `
             <div class="game-box">
                 <p>Game Item ${i}</p>
+
+                <a href="http://t.me/garshaspx" class="profile-username" target="_blank">
+                    <button>hello thereeeeeee</button>
+                </a>
+
+
             </div>
         `;
     }
