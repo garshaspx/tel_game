@@ -3,11 +3,11 @@
 export function loadFriendsPage() {
     return `
         <h2 class="animated-text">Friends</h2>
-        <div class="input-container">
+        <div class="friends-input-container">
             <input type="text" id="friend-search" placeholder="Search for friends...">
         </div>
         <div class="friends-list-container">
-            <div id="friends-list"></div>
+            <div id="friends-box-container"></div>
         </div>
     `;
 }
@@ -30,7 +30,7 @@ export function setupFriendsSearch(websocket) {
                 websocket.send(JSON.stringify({ action: 'searchFriends', data: searchQuery }));
 
             } else  if (searchQuery === ""){
-                document.getElementById('friends-list').innerHTML = "";
+                document.getElementById('friends-list-container').innerHTML = "";
             } else {
                 setupFriendsSearch(websocket)
             }
@@ -43,22 +43,22 @@ export function setupFriendsSearch(websocket) {
 
 
 export function handleFriendsSearchResults(websocket, data) {
-    const friendsListContainer = document.getElementById('friends-list');
+    const friendsListContainer = document.getElementById('friends-box-container');
     friendsListContainer.innerHTML = '';
 
     let friendsHTML = `
-        <div class="game-container">
+        <div class="friends-list-container">
     `;
     if (Object.keys(data).length === 0) {
         friendsHTML +=
-                `<div class="game-box">
+                `<div class="friends-box-container">
                     <p>No friends found.</p>
                 </div>`;
     } else {
         Object.keys(data).forEach(key => {
             const user = data[key];
             friendsHTML += `
-                <div class="game-box">                
+                <div class="friends-box-container">                
                     <p>${user.name} -- ${user.username}</p>
                     
                     <div class="profile-image">
@@ -77,18 +77,16 @@ export function handleFriendsSearchResults(websocket, data) {
     friendsListContainer.innerHTML = friendsHTML;
 
 
+
     const sendFriendButtons = document.querySelectorAll('#send_friend');
 
     sendFriendButtons.forEach(button => {
-
         button.addEventListener('click', () => {
             websocket.send(JSON.stringify({ action: 'send-freind', data: button.dataset.user}));
             showNotif("friend request sent.");
             setTimeout(function() {
                 hideNotif();
             }, 2000);
-
         });
-
     });
 }
