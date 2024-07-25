@@ -1,44 +1,1 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>are you winning son?</title>
-    <link rel="stylesheet" href="static/styles/styles.css">
-</head>
-
-<body>
-    <!--    <div class="container" id="login-container">-->
-    <!--        <h1 class="animated-text">Welcome to</h1>-->
-    <!--        <h1 class="animated-text">GARSHASP Games</h1>-->
-    <!--        <div class="input-button-wrapper">-->
-    <!--            <div class="input-container">-->
-    <!--                <input type="text" id="username" placeholder="Enter your username" required>-->
-    <!--            </div>-->
-    <!--            <button id="check-username">Check Username</button>-->
-    <!--        </div>-->
-    <!--        <p id="username-status"></p>-->
-    <!--    </div>-->
-
-    <div class="home-container" id="home-container">
-
-        <div class="navbar">
-            <button id="btn-games"><img src="static/imgs/game_navbar.svg" alt="Games"></button>
-            <button id="btn-tournaments"><img src="static/imgs/tournament_navbar.svg" alt="Tournaments"></button>
-            <button id="btn-friends"><img src="static/imgs/friend_navbar.svg" alt="Friends"></button>
-            <button id="btn-profile"><img src="static/imgs/profile_navbar.svg" alt="Profile"></button>
-        </div>
-
-        <div id="home-content"></div>
-
-    </div>
-
-    <div class="game-container" id="game-container"></div>
-    <div class="notification" id="notification" ></div>
-
-    <script type="module" src="static/logic/main.mjs"></script>
-
-</body>
-</html>
+<!DOCTYPE html><html lang="en"><head>    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>Are You Winning Son?</title>    <link rel="stylesheet" href="static/styles/main.css"></head><body>    <div class="home-container" id="home-container">        <div class="navbar">            <button id="btn-games"><img src="static/imgs/game_navbar.svg" alt="Games"></button>            <button id="btn-tournaments"><img src="static/imgs/tournament_navbar.svg" alt="Tournaments"></button>            <button id="btn-friends"><img src="static/imgs/friend_navbar.svg" alt="Friends"></button>            <button id="btn-profile"><img src="static/imgs/profile_navbar.svg" alt="Profile"></button>        </div>        <div id="home-content-profile" style="display: none;">            <div class="profile-container">                <div class="profile-header">                    <img id="profile-header" alt="Profile Header" loading="lazy">                </div>                <div class="profile-image">                    <img src='static/imgs/prof_demo.jpg' id="profile-image" alt="Profile Image" loading="lazy">                </div>                <h2 class="profile-username" id="profile-username"></h2>                <h2 class="profile-username" id="profile-name"></h2>            </div>        </div>        <div id="home-content-friends" style="display: none;">            <h2 class="animated-text">Friends</h2>            <div class="friends-input-container">                <input type="text" id="friend-search" placeholder="Search for friends...">            </div>            <div class="friends-list-container" id="friends-list-container"></div>        </div>        <div id="home-content-tournaments" style="display: none;">            <h2 class="animated-text">Tournaments</h2><p>Tournament content goes here.</p>        </div>        <div id="home-content-games" style="display: none;">            <h2 class="animated-text">Games</h2>            <div class="game-list-container">                <div class="game-box-container">                    <p>paddle game</p>                    <button id="game_paddle">play paddle game</button>                </div>                <div class="game-box-container">                    <p>snake game</p>                    <button id="game_snake">play snake game</button>                </div>            </div>        </div>    </div>    <div class="game-wrapper" id="game-wrapper">        <div id="ingame-details" class="ingame-details">            <button id="back-gamepage"> Back home </button>        </div>        <div class="game-content" id="game-content"></div>    </div>    <div class="notification" id="notification"></div>    <div id="popup" class="popup">        <div class="popup-content">            <span id="closePopup">&times;</span>            <div id="popup-body"></div>        </div>    </div>    <script type="module" src="static/logic/main.mjs"></script></body></html>

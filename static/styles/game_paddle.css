@@ -1,12 +1,18 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background: #000;
-}
 
 canvas {
     border: 2px solid #fff;
+    height: 80vh;
+    width: 80vw;
+}
+
+.back-home {
+    padding: 10px;
+    font-size: 1em;
+    white-space: nowrap;
+    background-color: #23a6d5;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }

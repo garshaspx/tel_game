@@ -1,4 +1,3 @@
-
 const canvas = document.getElementById('gameCanvas');
 const context = canvas.getContext('2d');
 const userId = window.location.pathname.split('/').pop();
@@ -98,8 +97,9 @@ function moveBall() {
             ballOnUrer = true;
         }
     }
-    sendDataToServer({ type: 'ball', position: [ ball.x, ball.y ] });
+    // sendDataToServer({ type: 'ball', position: [ ball.x, ball.y ] });
 }
+
 
 function update() {
     moveBall();
@@ -120,7 +120,6 @@ function render() {
     drawRect(opponent.x, opponent.y, opponent.width, opponent.height, opponent.color);
     drawArc(ball.x, ball.y, ball.radius, ball.color);
 }
-
 
 canvas.addEventListener('mousedown', function (event) {
     isMouseDown = true;
@@ -148,22 +147,18 @@ canvas.addEventListener('touchmove', function (event) {
 });
 
 let websocket;
-console.log("yeyyyyy");
-console.log(userId);
 
 let xxx;
-xxx = new URLSearchParams(window.location.search).get('userid')
+xxx = new URLSearchParams(window.location.search).get('userid');
 console.log(xxx);
 
-
-websocket= new WebSocket(`ws://localhost:80/ws/game/${xxx}`);
+websocket = new WebSocket(`ws://localhost:80/ws/game_paddle/${xxx}`);
 
 function sendDataToServer(data) {
     if (websocket.readyState === WebSocket.OPEN) {
         websocket.send(JSON.stringify(data));
     }
 }
-console.log("yeyyyyy");
 
 websocket.onmessage = function(event) {
     const message = JSON.parse(event.data);
@@ -173,11 +168,41 @@ websocket.onmessage = function(event) {
     }
 };
 
+let running = true;
 
 function gameLoop() {
+    if (!running) return;
     update();
     render();
     requestAnimationFrame(gameLoop);
 }
+
+
+const homeContainer = document.getElementById('home-container');
+const gameContainer = document.getElementById('game-container');
+
+document.getElementById('back-home').addEventListener('click', () => {
+
+
+    homeContainer.style.display = "block";
+    gameContainer.style.display = "none";
+
+    document.getElementById('game-container').innerHTML = "";
+
+    running = false;
+    websocket.close();
+    //
+    // canvas.removeEventListener('mousedown', movePaddle);
+    // canvas.removeEventListener('mouseup', movePaddle);
+    // canvas.removeEventListener('mousemove', movePaddle);
+    // canvas.removeEventListener('touchstart', movePaddle);
+    // canvas.removeEventListener('touchmove', movePaddle);
+
+    console.log("Button clicked");
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("DOM fully loaded and parsed");
+});
 
 gameLoop();
