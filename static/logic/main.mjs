@@ -135,7 +135,7 @@ function handleFriendsSearchResults(data) {
 
 function connectWebSocket() {
     // websocket = new WebSocket(`ws://window.location.host/ws/${user.userid}`);
-    websocket = new WebSocket(`wss://49.12.97.130/ws/${user.userid}`);
+    websocket = new WebSocket(`ws://49.12.97.130/ws/${user.userid}`);
 
 
     websocket.onopen = function () {
